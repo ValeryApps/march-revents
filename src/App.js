@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { Container } from 'semantic-ui-react';
 import './App.css';
+import EventDashboard from './features/events/EventDashboard';
+import NavBar from './features/NavBar';
 
 function App() {
+  const[formOpen, setFormOpen] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!!!!!1111111
-        </a>
-      </header>
-    </div>
+    <>
+    <NavBar setFormOpen = {setFormOpen}/>
+    <Container style={{marginTop:'5rem'}} >
+    <EventDashboard formOpen={formOpen} setFormOpen={setFormOpen}/>
+    </Container>
+    </>
   );
 }
 
